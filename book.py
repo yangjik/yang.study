@@ -15,9 +15,22 @@ if state == 200:
     html = res.text
     soup = BeautifulSoup(html, "html.parser")
 
-    re = soup.select("#Search3_Result > div:nth-child(1) > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > ul > li:nth-child(2) > a > b")
-#Search3_Result > div:nth-child(1) > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > ul > li:nth-child(2) > a > b
-    print(re)
+    total = soup.select_one("#Search3_Result")
+
+    txt = open('./check.txt', 'w', encoding='utf-8')
+
+    txt.writelines(total)
+
+    txt.close()
+
+    object = soup.select_one("#Search3_Result > div:nth-of-type(1) > table > tr > td:nth-of-type(3) > table > tr:nth-of-type(1) > td:nth-of-type(1) > div:nth-of-type(1) > ul > li:nth-of-type(2) > a > b")
+    object = object.text
+
+    price = soup.select_one("#Search3_Result > div:nth-of-type(1) > table > tr > td:nth-of-type(3) > table > tr:nth-of-type(1) > td:nth-of-type(1) > div:nth-of-type(1) > ul > li:nth-of-type(4) > span.ss_p2 >b > span ")
+
+    price = price.text
+    price = price.replace(",", "")
+    print(total)
 
 else:
     print('응답 코드 : ', state)
