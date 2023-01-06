@@ -9,7 +9,6 @@ word = input("작가명 입력해주세요 ")
 url = f"https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=Book&SearchWord={word}"
 
 # print(url)
-print('수정했습니다.')
 # get방식으로 전송
 res = requests.get(url)
 state = res.status_code
