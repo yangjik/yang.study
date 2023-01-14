@@ -9,17 +9,45 @@ import selenium
 from selenium import webdriver
 import chromedriver_autoinstaller
 import os
+import time
 
 # 크롬 버전 get
 chrome_version = chromedriver_autoinstaller.get_chrome_version().split('.')[0]
 driver_path = f'./{chrome_version}/chromedriver.exe'
 
 if os.path.exists(driver_path):
-    print('크롬 드라이버 이미 존재합니다.\n경로는 : ', driver_path)
-
+    # print('크롬 드라이버 이미 존재합니다.\n경로는 : ', driver_path)
+    pass
 else:
-    print(f'크롬 드라이버 설치\n(ver : {chrome_version})')
+    # print(f'크롬 드라이버 설치\n(ver : {chrome_version})')
     chromedriver_autoinstaller.install(True)
 
 driver = webdriver.Chrome(driver_path)
-driver.get('https://google.com')
+# 네이버 항공편
+driver.get('https://flight.naver.com/')
+time.sleep(2)
+
+driver.find_element_by_css_selector('#__next > div > div.container.as_main > div.popup_travelclub > div > div.btns > button:nth-child(2)').click()
+time.sleep(2)
+
+driver.find_element_by_css_selector('#__next > div > div.container.as_main > div.main_searchbox__3vrV3 > div > div > div.searchBox_tabpanel__1BSGR > div.tabContent_routes__laamB > button.tabContent_route__1GI8F.select_City__2NOOZ.end > i').click()
+time.sleep(2)
+
+# insert_from = str(input('도착지를 입력하세요. '))
+box = driver.find_element_by_css_selector('#__next > div > div.container.as_main > div.autocomplete_autocomplete__ZEwU_.autocomplete_is_arrival__JR22W > div.autocomplete_header__1NSMD > div > input')
+time.sleep(2)
+
+box.send_keys('후쿠오카')
+# box.send_keys(insert_from)
+time.sleep(2)
+
+want = driver.find_element_by_class_name('#__next > div > div.container.as_main > div.autocomplete_autocomplete__ZEwU_.autocomplete_is_arrival__JR22W > div.autocomplete_content__3RhAZ > section > div > a > div > div.autocomplete_locations__1lh0C > i:nth-child(1) > mark')
+want.click()
+time.sleep(2)
+
+
+# test = driver.window_handles
+
+
+
+# print('현재 창은 ?\n' , test)
