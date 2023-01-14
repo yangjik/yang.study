@@ -17,3 +17,7 @@
 # 패키지 설치
 # conda install 패키지명
 # ex) conda install matplotlib
+
+
+# 현재 설치된 라이브러리
+# conda install requests
