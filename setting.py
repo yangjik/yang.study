@@ -21,3 +21,7 @@
 
 # 현재 설치된 라이브러리
 # conda install requests
+# conda install numpy
+# conda install scipy
+# conda install scikit-learn
+# conda install matplotlib

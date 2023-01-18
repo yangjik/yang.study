@@ -41,13 +41,8 @@ box.send_keys('후쿠오카')
 # box.send_keys(insert_from)
 time.sleep(2)
 
-want = driver.find_element_by_class_name('#__next > div > div.container.as_main > div.autocomplete_autocomplete__ZEwU_.autocomplete_is_arrival__JR22W > div.autocomplete_content__3RhAZ > section > div > a > div > div.autocomplete_locations__1lh0C > i:nth-child(1) > mark')
-want.click()
+driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[9]/div[2]/section/div/a/div').click()
 time.sleep(2)
 
 
-# test = driver.window_handles
-
-
-
-# print('현재 창은 ?\n' , test)
+driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[4]/div/div/div[2]/div[2]/button[1]').click()
