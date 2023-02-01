@@ -25,3 +25,10 @@
 # conda install scipy
 # conda install scikit-learn
 # conda install matplotlib
+
+# 패키지 관리
+# - pip freeze 로 현재 내가 설치한 라이브러리 확인
+# - txt파일로 저장은 pip freeze > requirements.txt
+
+# txt파일 기준으로 라이브러리 설치는
+# - pip install -r requirements.txt 
