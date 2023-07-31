@@ -1,4 +1,4 @@
-# yang.study
+# study record
 안녕하세요.
 양윤직입니다.
 
